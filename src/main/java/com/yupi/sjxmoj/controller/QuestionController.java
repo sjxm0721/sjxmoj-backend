@@ -68,7 +68,7 @@ public class QuestionController {
         if(judgeCase!=null){
             question.setJudgeCase(GSON.toJson(judgeCase));
         }
-        List<JudgeConfig> judgeConfig = questionAddRequest.getJudgeConfig();
+        JudgeConfig judgeConfig = questionAddRequest.getJudgeConfig();
         if(judgeConfig!=null){
             question.setJudgeConfig(GSON.toJson(judgeConfig));
         }
@@ -130,7 +130,7 @@ public class QuestionController {
         if(judgeCase!=null){
             question.setJudgeCase(GSON.toJson(judgeCase));
         }
-        List<JudgeConfig> judgeConfig = questionUpdateRequest.getJudgeConfig();
+        JudgeConfig judgeConfig = questionUpdateRequest.getJudgeConfig();
         if(judgeConfig!=null){
             question.setJudgeConfig(GSON.toJson(judgeConfig));
         }
@@ -269,7 +269,7 @@ public class QuestionController {
         if(judgeCase!=null){
             question.setJudgeCase(GSON.toJson(judgeCase));
         }
-        List<JudgeConfig> judgeConfig = questionEditRequest.getJudgeConfig();
+        JudgeConfig judgeConfig = questionEditRequest.getJudgeConfig();
         if(judgeConfig!=null){
             question.setJudgeConfig(GSON.toJson(judgeConfig));
         }

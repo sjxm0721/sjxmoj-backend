@@ -45,7 +45,7 @@ public class QuestionAddRequest implements Serializable {
     /**
      * JSON配置
      */
-    private List<JudgeConfig> judgeConfig;
+    private JudgeConfig judgeConfig;
 
     private static final long serialVersionUID = 1L;
 }
