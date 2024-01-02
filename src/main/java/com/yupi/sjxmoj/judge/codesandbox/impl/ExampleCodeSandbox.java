@@ -2,7 +2,7 @@ package com.yupi.sjxmoj.judge.codesandbox.impl;
 
 import com.yupi.sjxmoj.judge.codesandbox.CodeSandbox;
 import com.yupi.sjxmoj.judge.codesandbox.model.ExecuteCodeRequest;
-import com.yupi.sjxmoj.model.dto.questionsubmit.JudgeInfo;
+import com.yupi.sjxmoj.judge.codesandbox.model.JudgeInfo;
 import com.yupi.sjxmoj.model.enums.JudgeInfoMessageEnum;
 import com.yupi.sjxmoj.model.enums.QuestionSubmitStatusEnum;
 import com.yupi.sjxmoj.judge.codesandbox.model.ExecuteCodeResponse;

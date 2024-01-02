@@ -2,16 +2,13 @@ package com.yupi.sjxmoj.model.vo;
 
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.yupi.sjxmoj.model.dto.question.JudgeConfig;
-import com.yupi.sjxmoj.model.dto.questionsubmit.JudgeInfo;
-import com.yupi.sjxmoj.model.entity.Question;
+import com.yupi.sjxmoj.judge.codesandbox.model.JudgeInfo;
 import com.yupi.sjxmoj.model.entity.QuestionSubmit;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 帖子
@@ -41,7 +38,7 @@ public class QuestionSubmitVO implements Serializable {
     /**
      * 判题状态（0-待判题，1-判题中，2-成功，3-失败）
      */
-    private String status;
+    private Integer status;
 
     /**
      * 题目 id

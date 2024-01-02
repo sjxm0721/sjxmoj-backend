@@ -1,17 +1,37 @@
 package com.yupi.sjxmoj.judge.codesandbox.impl;
 
+import cn.hutool.http.HttpResponse;
+import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONUtil;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.yupi.sjxmoj.exception.BusinessException;
 import com.yupi.sjxmoj.judge.codesandbox.CodeSandbox;
 import com.yupi.sjxmoj.judge.codesandbox.model.ExecuteCodeRequest;
 import com.yupi.sjxmoj.judge.codesandbox.model.ExecuteCodeResponse;
+
+import static com.yupi.sjxmoj.common.ErrorCode.API_REQUEST_ERROR;
 
 /**
  * 远程代码沙箱（实际调用接口的沙箱）
  */
 public class RemoteCodeSandbox implements CodeSandbox {
+
+    private static final String AUTH_REQUEST_HEADER = "auth";
+
+    private static final String AUTH_REQUEST_SECRET = "secretKey";
     @Override
     public ExecuteCodeResponse executeCode(ExecuteCodeRequest executeCodeRequest) {
 
         System.out.println("远程代码沙箱");
-        return null;
+        String url = "http://10.211.55.6:8090/executeCode";
+        String json = JSONUtil.toJsonStr(executeCodeRequest);
+        String responseStr = HttpUtil.createPost(url)
+                .header(AUTH_REQUEST_HEADER,AUTH_REQUEST_SECRET).body(json).execute().body();
+        if(StringUtils.isBlank(responseStr)){
+            throw new BusinessException(API_REQUEST_ERROR,"executeCode remoteSandbox error,message = "+responseStr);
+        }
+        return JSONUtil.toBean(responseStr, ExecuteCodeResponse.class);
     }
+
+
 }
